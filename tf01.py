@@ -139,7 +139,34 @@ for i in range(num_images):
 
 
 # make a prediction about a single image
-# ...
+# Grab an image from the test dataset
+img = test_images[0]
+print(img.shape)
+# Add the image to a batch where it's the only member.
+img = (np.expand_dims(img,0))
+print(img.shape)
+# predict the image
+predictions_single = model.predict(img)
+print(predictions_single)
+# show the plot of the prediction
+plot_value_array(0, predictions_single, test_labels)
+_ = plt.xticks(range(10), class_names, rotation=45)
+np.argmax(predictions_single[0])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
